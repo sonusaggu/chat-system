@@ -1,5 +1,5 @@
-// chat.js
-const socket = io(); // Connect to the WebSocket server
+// chat.js (Client-side)
+const socket = new WebSocket('wss://your-vercel-deployment-url/api/websocket');
 
 // DOM elements
 const messagesDiv = document.getElementById('messages');
@@ -10,15 +10,16 @@ const sendButton = document.getElementById('send');
 sendButton.addEventListener('click', () => {
   const message = chatbox.value;
   if (message.trim()) {
-    socket.emit('message', message); // Send message to the server
+    socket.send(message);  // Send message to the WebSocket server
     chatbox.value = ''; // Clear the input field
   }
 });
 
 // Listen for incoming messages
-socket.on('message', (message) => {
+socket.onmessage = (event) => {
+  const message = event.data;
   const messageElement = document.createElement('div');
   messageElement.textContent = message;
   messagesDiv.appendChild(messageElement);
   messagesDiv.scrollTop = messagesDiv.scrollHeight; // Scroll to the bottom
-});
+};
