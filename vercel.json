@@ -5,6 +5,7 @@
     { "src": "api/websocket.js", "use": "@vercel/node" }
   ],
   "routes": [
+    { "src": "/api/websocket", "dest": "/api/websocket.js" },
     { "src": "/(.*)", "dest": "/index.js" }
   ]
 }
