@@ -1,5 +1,6 @@
 // chat.js
-const socket = new WebSocket('wss://your-vercel-url/api/websocket');  // Make sure this URL is correct
+const socket = new WebSocket('wss://chat-system-six.vercel.app/api/websocket');
+ // Make sure this URL is correct
 
 // DOM elements
 const messagesDiv = document.getElementById('messages');
