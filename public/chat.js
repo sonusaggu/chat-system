@@ -1,5 +1,5 @@
 // chat.js
-const socket = new WebSocket('wss://chat-system-six.vercel.app/api/websocket');
+const socket = new WebSocket('wss://chat-system-f1fd1a.fly.dev/api/websocket');
  // Make sure this URL is correct
 
 // DOM elements
